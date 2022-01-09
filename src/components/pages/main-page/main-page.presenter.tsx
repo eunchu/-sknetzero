@@ -131,12 +131,11 @@ const InfoTextArea = styled.p`
   margin-right: 80px;
   ${mediaQueries("tablet")`
     width: 100%;
-    padding: 0 124px;
+    padding: 0 16%;
   `}
-  /* TODO 문의 후 진행 */
-  @media (max-width: 700px) {
+  /* @media (max-width: 700px) {
     padding: 0 32px;
-  }
+  } */
   .info-desc {
     font-weight: 400;
     font-size: 16px;
@@ -181,6 +180,7 @@ const LogoList = styled.ul`
 `;
 // Protect
 const Protect = styled.section`
+  display: none;
   background-color: ${({ theme }) => theme.color.white};
 
   padding: 96px 0 141px 0;
@@ -255,6 +255,7 @@ const ProtectList = styled.ul`
 `;
 // Mission
 const Mission = styled.section`
+  display: none;
   .inner {
     padding: 120px 0 431px 12.5%; //240px
     ${mediaQueries("mobile")`
@@ -310,6 +311,7 @@ const Mission = styled.section`
 `;
 // Kids
 const Kids = styled.section`
+  display: none;
   background-color: #141414;
 
   .inner {
@@ -346,6 +348,7 @@ const KidsTextArea = styled.div`
 `;
 // Buy&Sell
 const BuyAndSell = styled.section`
+  display: none;
   background-color: #141414;
 
   .inner {
@@ -372,6 +375,7 @@ const BuyAndSellImgArea = styled(KidsImgArea)`
 `;
 // Tech
 const Tech = styled.section`
+  display: none;
   background-color: #141414;
 
   .inner {
@@ -392,6 +396,7 @@ const TechTextArea = styled(KidsTextArea)`
 `;
 // Company
 const Company = styled.section`
+  display: none;
   background-color: ${({ theme }) => theme.color.white};
 
   .inner {

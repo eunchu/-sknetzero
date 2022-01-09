@@ -9,7 +9,7 @@ const RouterConfig = () => {
     <BrowserRouter>
       <ScrollToTop />
       <Routes>
-        <Route path="/" element={<Layer />}>
+        <Route path="main" element={<Layer />}>
           <Route index element={<MainPage />} />
           {/* <Route path="community" element={<CommunityPage />} />
           <Route path="membership" element={<div>멤버십 페이지</div>} />
