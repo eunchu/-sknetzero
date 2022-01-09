@@ -103,7 +103,7 @@ const Info = styled.section`
     display: flex;
     flex-direction: column;
 
-    ${mediaQueries("tablet")`
+    ${mediaQueries("desktopS")`
       width: 100%;
     `}
     .layout-top {
@@ -133,9 +133,9 @@ const InfoTextArea = styled.p`
     width: 100%;
     padding: 0 16%;
   `}
-  /* @media (max-width: 700px) {
+  ${mediaQueries("mobile")`
     padding: 0 32px;
-  } */
+  `}
   .info-desc {
     font-weight: 400;
     font-size: 16px;
@@ -147,43 +147,86 @@ const InfoTextArea = styled.p`
 const PhoneImgArea = styled.div`
   width: 0;
   flex-grow: 1;
+
   ${mediaQueries("tablet")`
     width: 100%;
-
-    padding: 0 124px;
+    
+    padding: 0 16%;
     margin-top: 40px;
+  `}
+  ${mediaQueries("mobile")`
+    padding: 0 8%;
+    margin-top: -40px;
   `}
   img {
     width: 100%;
   }
 `;
 const LogoList = styled.ul`
-  height: 40px;
-  max-width: 831px;
-  width: 100%;
-
   display: flex;
   align-items: center;
-  justify-content: space-between;
 
   margin-top: 40px;
+  ${mediaQueries("desktopS")`
+    justify-content: space-between;
+  `}
   ${mediaQueries("tablet")`
-    max-width: 100%;
-    padding: 0 118px;
+    padding: 0 15%;
+  `}
+  ${mediaQueries("mobile")`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 0 32px;
   `}
   li {
-    height: 100%;
+    margin-right: 140px;
+    ${mediaQueries("desktopS")`
+      margin-right: 24px;
+    `}
+    ${mediaQueries("mobile")`
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      margin-right: 0;
+      margin-bottom: 40px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    `}
     img {
-      height: 100%;
+      width: 100%;
+    }
+    .logo1 {
+      max-width: 86px;
+      ${mediaQueries("mobile")`
+        margin-right: 40px;
+      `}
+    }
+    .logo2 {
+      max-width: 100px;
+    }
+    .logo3 {
+      max-width: 105px;
+      ${mediaQueries("mobile")`
+        margin-right: 40px;
+      `}
+    }
+    .logo4 {
+      max-width: 120px;
+    }
+    &:nth-child(4) {
+      margin-right: 0;
     }
   }
 `;
 // Protect
 const Protect = styled.section`
-  display: none;
   background-color: ${({ theme }) => theme.color.white};
 
-  padding: 96px 0 141px 0;
+  padding: 96px 0 120px 0;
 
   .inner {
     width: 100%;
@@ -200,6 +243,14 @@ const ProtectTitle = styled.h2`
   font-size: 80px;
   line-height: 98px;
   text-align: center;
+  ${mediaQueries("tablet")`
+    font-size: 60px;
+    line-height: 61px;
+  `}
+  ${mediaQueries("mobile")`
+    font-size: 50px;
+    line-height: 61px;
+  `}
   span {
     display: block;
 
@@ -215,6 +266,13 @@ const ProtectList = styled.ul`
   align-items: center;
 
   margin-top: 40px;
+  ${mediaQueries("desktopS")`
+    padding: 0 32px;
+  `}
+  ${mediaQueries("tablet")`
+    flex-direction: column;
+    margin-top: 80px;
+  `}
   li {
     display: flex;
     flex-direction: column;
@@ -223,11 +281,29 @@ const ProtectList = styled.ul`
     color: ${({ theme }) => theme.color.gray_900};
 
     margin-right: 80px;
+    ${mediaQueries("tablet")`
+      width: 33.3%;
+
+      margin-right: 0;
+      margin-bottom: 80px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    `}
+    ${mediaQueries("tablet")`
+      width: 100%;
+    `}
     &:last-child {
       margin-right: 0;
     }
     img {
-      width: 300px;
+      max-width: 300px;
+      ${mediaQueries("desktopS")`
+        max-width: 100%;
+      `}
+      ${mediaQueries("tablet")`
+        max-width: 300px;
+      `}
     }
     .title {
       font-size: 21px;
@@ -492,20 +568,33 @@ const MainPage = () => {
               <img src={ImgInfoPhone} alt="" />
             </PhoneImgArea>
           </div>
-          <LogoList>
-            <li>
-              <img src={ImgInfoLogo01} alt="" />
-            </li>
-            <li>
-              <img src={ImgInfoLogo02} alt="" />
-            </li>
-            <li>
-              <img src={ImgInfoLogo03} alt="" />
-            </li>
-            <li>
-              <img src={ImgInfoLogo04} alt="" />
-            </li>
-          </LogoList>
+          {!MobileSize ? (
+            <LogoList>
+              <li>
+                <img className="logo1" src={ImgInfoLogo01} alt="" />
+              </li>
+              <li>
+                <img className="logo2" src={ImgInfoLogo02} alt="" />
+              </li>
+              <li>
+                <img className="logo3" src={ImgInfoLogo03} alt="" />
+              </li>
+              <li>
+                <img className="logo4" src={ImgInfoLogo04} alt="" />
+              </li>
+            </LogoList>
+          ) : (
+            <LogoList>
+              <li>
+                <img className="logo1" src={ImgInfoLogo01} alt="" />
+                <img className="logo2" src={ImgInfoLogo02} alt="" />
+              </li>
+              <li>
+                <img className="logo3" src={ImgInfoLogo03} alt="" />
+                <img className="logo4" src={ImgInfoLogo04} alt="" />
+              </li>
+            </LogoList>
+          )}
         </div>
       </Info>
       {/* Protect */}
@@ -513,7 +602,7 @@ const MainPage = () => {
         <div className="inner">
           <ProtectTitle>
             <span>We use finance to</span>
-            PROTECT NATURE
+            PROTECT{MobileSize && <br />} NATURE
           </ProtectTitle>
           <ProtectList>
             <li>
