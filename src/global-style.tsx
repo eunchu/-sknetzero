@@ -1,9 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 
-// import "assets/styles/swiper.css";
-// import "antd/dist/antd.css";
-
 const GlobalStyles = createGlobalStyle`
   ${reset};
 

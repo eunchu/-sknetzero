@@ -2,7 +2,7 @@ import { useMediaQuery } from "react-responsive";
 import styled, { css } from "styled-components";
 
 import { mediaQueries } from "assets/styles/media";
-import { Desktop, Mobile } from "utils";
+import { Mobile } from "utils";
 
 import ImgBg from "assets/imgs/img-main.png";
 // Info
@@ -273,6 +273,9 @@ const ProtectList = styled.ul`
     flex-direction: column;
     margin-top: 80px;
   `}
+  ${mediaQueries("mobile")`
+    padding: 0 16px;
+  `}
   li {
     display: flex;
     flex-direction: column;
@@ -323,6 +326,7 @@ const ProtectList = styled.ul`
       font-size: 16px;
       line-height: 20px;
       font-weight: 700;
+      text-decoration: underline;
       ${MainColor};
 
       cursor: pointer;
@@ -331,15 +335,25 @@ const ProtectList = styled.ul`
 `;
 // Mission
 const Mission = styled.section`
-  display: none;
   .inner {
     padding: 120px 0 431px 12.5%; //240px
-    ${mediaQueries("mobile")`
+    ${mediaQueries("desktopS")`
       padding-left: 32px;
+    `}
+    ${mediaQueries("mobile")`
+      padding-left: 16px;
     `}
     h2 {
       ${TextH2};
       color: ${({ theme }) => theme.color.white};
+      ${mediaQueries("desktopS")`
+        font-size: 60px;
+        line-height: 72px;
+      `}
+      ${mediaQueries("mobile")`
+        font-size: 50px;
+        line-height: 60px;
+      `}
       strong {
         ${MainColor};
       }
@@ -351,8 +365,14 @@ const Mission = styled.section`
       line-height: 45px;
 
       margin: 24px 0;
+      ${mediaQueries("desktopS")`
+        width: 460px;
+      `}
       ${mediaQueries("mobile")`
-        width: 100%;
+        width: 225px;
+
+        font-size: 30px;
+        line-height: 36px;
       `}
     }
     /* TODO 배경 투명하게 변경 */
@@ -382,12 +402,12 @@ const Mission = styled.section`
       background-clip: content-box, border-box;
 
       cursor: pointer;
+      user-select: none;
     }
   }
 `;
 // Kids
 const Kids = styled.section`
-  display: none;
   background-color: #141414;
 
   .inner {
@@ -424,7 +444,6 @@ const KidsTextArea = styled.div`
 `;
 // Buy&Sell
 const BuyAndSell = styled.section`
-  display: none;
   background-color: #141414;
 
   .inner {
@@ -451,7 +470,6 @@ const BuyAndSellImgArea = styled(KidsImgArea)`
 `;
 // Tech
 const Tech = styled.section`
-  display: none;
   background-color: #141414;
 
   .inner {
@@ -472,7 +490,6 @@ const TechTextArea = styled(KidsTextArea)`
 `;
 // Company
 const Company = styled.section`
-  display: none;
   background-color: ${({ theme }) => theme.color.white};
 
   .inner {
@@ -499,7 +516,6 @@ const Company = styled.section`
   }
 `;
 
-//
 interface ButtonGradientProps {
   width: string;
 }
@@ -527,6 +543,8 @@ const TitleUnderLine = styled.span`
 const MainPage = () => {
   // 모바일 사이즈
   const MobileSize = useMediaQuery({ query: "(max-width: 479px)" });
+  const TabletSize = useMediaQuery({ query: "(max-width: 1000px)" });
+  const test = TabletSize ? "70%" : "center";
 
   return (
     <Container>
@@ -640,7 +658,7 @@ const MainPage = () => {
       </Protect>
       {/* Mission */}
       <Mission
-        style={{ background: `url(${ImgMission}) center/cover no-repeat` }}
+        style={{ background: `url(${ImgMission}) ${test}/cover no-repeat` }}
       >
         <div className="inner">
           <h2 className="title">

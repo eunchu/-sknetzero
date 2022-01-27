@@ -80,6 +80,7 @@ interface TextProps {
   children: string;
 }
 const Text = ({ type, children }: TextProps) => {
+  // en, ko
   return type === "h1" ? (
     <H1>{children}</H1>
   ) : type === "h2" ? (

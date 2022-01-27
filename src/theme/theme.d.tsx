@@ -1,5 +1,4 @@
 import "styled-components";
-
 declare module "styled-components" {
   export interface Theme {
     color: {
@@ -14,29 +13,7 @@ declare module "styled-components" {
       primary_200: string;
       primary_100: string;
       primary_50: string;
-      // Secondary_red
-      secondary_red_900: string;
-      secondary_red_800: string;
-      secondary_red_700: string;
-      secondary_red_600: string;
-      secondary_red_500: string;
-      secondary_red_400: string;
-      secondary_red_300: string;
-      secondary_red_200: string;
-      secondary_red_100: string;
-      secondary_red_50: string;
-      // Secondary_blue
-      secondary_blue_900: string;
-      secondary_blue_800: string;
-      secondary_blue_700: string;
-      secondary_blue_600: string;
-      secondary_blue_500: string;
-      secondary_blue_400: string;
-      secondary_blue_300: string;
-      secondary_blue_200: string;
-      secondary_blue_100: string;
-      secondary_blue_50: string;
-      // Gray
+      // Grayscale
       gray_900: string;
       gray_800: string;
       gray_700: string;
@@ -52,6 +29,7 @@ declare module "styled-components" {
       // etc
       error: string;
       warning: string;
+      seccess: string;
     };
     shape: {
       radius: {

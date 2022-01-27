@@ -9,21 +9,8 @@ const RouterConfig = () => {
     <BrowserRouter>
       <ScrollToTop />
       <Routes>
-        <Route path="/sknetzero" element={<Layer />}>
+        <Route path="/" element={<Layer />}>
           <Route index element={<MainPage />} />
-          {/* <Route path="community" element={<CommunityPage />} />
-          <Route path="membership" element={<div>멤버십 페이지</div>} />
-          <Route path="service" element={<CompanyServicePage />} />
-          <Route
-            path="community/recommend/detail"
-            element={<RecommendDetail />}
-          />
-          <Route path="community/popular/detail" element={<PopularDetail />} />
-          <Route
-            path="community/magazine/detail"
-            element={<MagazineDetail />}
-          />
-          <Route path="mypage" element={<MyPage />} /> */}
         </Route>
       </Routes>
     </BrowserRouter>
